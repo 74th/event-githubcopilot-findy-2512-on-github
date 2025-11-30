@@ -32,6 +32,11 @@ interface TaskCardProps {
 }
 
 const TaskCard = (props: TaskCardProps) => {
+  async function clickStart(): Promise<void> {
+    await api.postTaskStart(props.task)
+    await props.reloadTasks()
+  }
+
   async function clickDone(): Promise<void> {
     await api.postTaskDone(props.task)
     await props.reloadTasks()
@@ -45,13 +50,22 @@ const TaskCard = (props: TaskCardProps) => {
           {props.task.id}
         </span>
         <p className="card-text flex-grow-1 mb-0">{props.task.text}</p>
-        <button
-          className="btn btn-outline-success mt-2"
-          onClick={clickDone}
-          type="button"
-        >
-          done
-        </button>
+        <div className="d-flex gap-2">
+          <button
+            className="btn btn-outline-primary flex-fill"
+            onClick={clickStart}
+            type="button"
+          >
+            Start
+          </button>
+          <button
+            className="btn btn-outline-success flex-fill"
+            onClick={clickDone}
+            type="button"
+          >
+            done
+          </button>
+        </div>
       </div>
     </div>
   )
