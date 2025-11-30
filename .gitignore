@@ -1,2 +1,5 @@
 todo_frontend/node_modules
 .venv
+__pycache__
+todo_api/public
+todo_frontend/dist
