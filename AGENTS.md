@@ -3,7 +3,7 @@
 
 ## 利用ツール
 - Pythonのライブラリ管理: uv
-- Nodejsのパッケージ管理: pnpm
+- Nodejsのパッケージ管理: npm
 
 ## プロジェクト構成
 - todo_api/ : バックエンドAPIサーバ
@@ -43,12 +43,12 @@
 ## 開発ワークフロー
 - 開発サーバ起動
   - バックエンド: `uv run python -m todo_api.server.api`（ポート 8080。`todo_api/public` を自動 Serve）。
-  - フロントエンド: `cd todo_frontend && pnpm start`（または `npm start`）。ポート 3000 で Flask にプロキシします。
+  - フロントエンド: `cd todo_frontend && npm start`。ポート 3000 で Flask にプロキシします。
 - バックエンド
   - フォーマット: `uv run ruff format .`
   - リント: `uv run ruff check .`
   - テスト: `uv run python -m unittest discover -p "*_test.py" -v`
 - フロントエンド
-  - リント: `cd todo_frontend && pnpm lint --fix`
-  - フォーマットも `pnpm list --fix` で行う
+  - リント: `cd todo_frontend && npm run lint`
+  - フォーマットも `npm run lint-fix` で行う
 - コード修正後は、フォマット、リント、テストを実行すること

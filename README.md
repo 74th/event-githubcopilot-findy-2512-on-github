@@ -1,17 +1,4 @@
-# Agentモードにコンテキストを与えよう
+# イベント『GitHub Copilotを使いこなす 実例に学ぶAIコーディング活用術』実演コード
 
-## このアプリは？
-
-PythonでWeb APIサーバを作り、Reactでフロントエンドを作られている。
-
-TODOアプリを作ってあり、以下のコマンドで起動する
-
-```
-# APIサーバ(Python)の起動
-uv run python -m todo_api.server.api
-
-# フロントエンドサーバ(React)の起動
-cd todo_frontend && pnpm start
-```
-
-## 自動生成コンテキスト
+https://findy.connpass.com/event/376448/
+https://techplay.jp/event/989223

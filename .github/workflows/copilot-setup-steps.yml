@@ -27,10 +27,6 @@ jobs:
           cache: "npm"
           cache-dependency-path: ./todo_frontend/package-lock.json
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
       - name: Install Node.js dependencies
         run: cd todo_frontend && pnpm install
 
