@@ -14,6 +14,16 @@ class OperationInteractor:
         self._db.add(task)
         return task
 
+    def start_task(self, task_id: int) -> Task:
+        task = self._db.get(task_id)
+        if task is None:
+            raise Exception("not found")
+        task["status"] = "in progress"
+
+        self._db.update(task)
+
+        return task
+
     def done_task(self, task_id: int) -> Task:
         task = self._db.get(task_id)
         if task is None:
