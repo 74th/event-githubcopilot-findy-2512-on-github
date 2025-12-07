@@ -1,2 +1,3 @@
-todo_frontend/node_modules
-.venv
+node_modules/
+.venv/
+*.pyc
