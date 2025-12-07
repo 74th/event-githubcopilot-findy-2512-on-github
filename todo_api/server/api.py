@@ -6,7 +6,7 @@ from todo_api.domain.usecase import OperationInteractor
 
 from todo_api.memdb.memdb import MemDB
 
-webroot = os.environ.get("WEBROOT", "./public")
+webroot = os.path.abspath(os.environ.get("WEBROOT", "./public"))
 
 db = MemDB()
 op = OperationInteractor(db)

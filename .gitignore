@@ -1,3 +1,6 @@
 node_modules/
 .venv/
 *.pyc
+public/
+todo_api/public/
+todo_frontend/dist/
