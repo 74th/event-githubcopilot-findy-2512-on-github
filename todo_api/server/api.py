@@ -6,7 +6,7 @@ from todo_api.domain.usecase import OperationInteractor
 
 from todo_api.memdb.memdb import MemDB
 
-webroot = os.environ.get("WEBROOT", "./public")
+webroot = os.path.abspath(os.environ.get("WEBROOT", "./public"))
 
 db = MemDB()
 op = OperationInteractor(db)
@@ -39,6 +39,14 @@ def append_task() -> Task:
     task = cast(Task, request.get_json())
     new_task = op.create_task(task)
     return new_task
+
+
+# タスクを開始する
+# PATCH /api/tasks/<タスクのID>/start
+@app.route("/api/tasks/<int:task_id>/start", methods=["PATCH"])
+def start_task(task_id: int):
+    task = op.start_task(task_id)
+    return task
 
 
 # タスクを完了にする

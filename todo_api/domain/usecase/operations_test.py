@@ -22,3 +22,23 @@ class OperationTest(TestCase):
         created_task = op.create_task(new_task)
 
         assert created_task["id"] is not None, "タスクIDが割り振られること"
+
+    def test_start_task(self):
+        db = MemDB()
+        op = OperationInteractor(db)
+
+        # Get initial tasks
+        tasks = op.show_tasks()
+        assert len(tasks) == 2, "初期状態で2つのタスクがあること"
+
+        # Start the first task
+        task_id = tasks[0]["id"]
+        assert task_id is not None
+        started_task = op.start_task(task_id)
+
+        assert started_task["status"] == "in progress", "タスクが進行中になること"
+        assert started_task["id"] == task_id, "タスクIDが変わらないこと"
+
+        # Verify task still appears in unfinished list
+        tasks_after_start = op.show_tasks()
+        assert len(tasks_after_start) == 2, "進行中のタスクが未完了リストに含まれること"

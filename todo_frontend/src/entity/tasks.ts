@@ -1,4 +1,4 @@
-export type TaskStatus = 'todo' | 'done'
+export type TaskStatus = 'todo' | 'in progress' | 'done'
 
 /**
  * タスク
