@@ -27,6 +27,14 @@ jobs:
           cache: "npm"
           cache-dependency-path: ./todo_frontend/package-lock.json
 
+      # https://zenn.dev/luup_developers/articles/ga-scrennshot-20241203
+      - name: Install Japanese fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+          fonts-noto-cjk \
+          fonts-noto-cjk-extra
+
       - name: Install Node.js dependencies
         run: cd todo_frontend && pnpm install
 
